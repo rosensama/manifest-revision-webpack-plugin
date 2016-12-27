@@ -124,7 +124,7 @@ ManifestRevisionPlugin.prototype.walkAndPrefetchAssets = function (compiler) {
     var walker_options = {
         listeners: {
             file: function (root, fileStat, next) {
-                var assetPath = './' + path.join(root, fileStat.name);
+                var assetPath = path.join(root, fileStat.name);
                 if (self.isSafeToTrack(assetPath)) {
                     compiler.apply(new webpack.PrefetchPlugin(assetPath));
                 }
